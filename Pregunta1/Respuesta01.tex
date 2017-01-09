@@ -1,0 +1,62 @@
+\documentclass{article}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{csvsimple}
+
+
+
+
+\begin{document}
+
+
+\section{Razonamiento}
+
+Los datos del Censo 2010 muestran mucho detalle. No tengo ninguna razón
+para establecer una correlación entre la población infantil de entonces y la de ahora, es mejor asumir que los nacimientos son sólo proporcionales a la población total
+de cada AGEB.  Así que lo que necesitamos es un estimado de la población por AGEB y de la taza de nacimientos bruta. La primera la podemos obtener de los datos de la delegación
+en el 2015 \cite{CuentameINEGI} contra el 2010 \cite{CPV2010} y extrapolando el ritmo de crecimiento a un año más, para obtener la población a finales del 2016. La taza de natalidad la estimamos de la siguiente forma: siguiendo la tendencia reportada en el INEGI \cite{NatInegi}, observamos que esta decrece dos décimos cada año desde el 2008, así que asumimos que esa tendencia se mantuvo en el 2016, aproximadamente. La delegación A. Obregón muestra una taza de crecimiento atípica, pero se debe mucho a movilidad poblacional (no podemos estimar la taza de natalidad del crecimiento) \cite{AObre}. Asimismo basta asumir que los bebes nacen de forma más o menos uniforme a lo largo del año, o al menos, simétricamente respecto al verano. De ahí que podamos tomar la mitad de la taza de natalidad como el factor multiplicativo para obtener un estimado de bebes de 0 a 6 meses de edad.
+
+\section{Procedimiento}
+
+Una vez descargados los datos del CPV2010, procedí a recortarlos para quedarme con la información que era relevante. Los comandos se encuentran en un \emph{bash script} de nombre  \verb!limpiadatos.sh!. El resto del problema fue tratado en R, los comandos se encuentran listados y comentados en \verb!solucion.r!. 
+
+
+\section{Resultados}
+
+Los resultados están en una tabla cvs (EstimadoBebesAObregon.cvs) con los siguientes nombres de columna:
+\begin{itemize}
+\item ageb: AGEB
+  \item pobtot: Población total 2010
+  \item pobest2016: Estimado de población actual
+  \item bebesest2016: Estimado de bebes de 0 a 6 meses a la fecha
+\end{itemize}
+
+
+
+
+\begin{thebibliography}{0}
+
+\bibitem{CuentameINEGI}
+  INEGI: ``Monografías de Población'',\\
+  \verb!http://cuentame.inegi.org.mx/monografias/informacion/df/poblacion/!
+  
+
+\bibitem{CPV2010}
+INEGI: ``Censo Población y Vivienda 2010'',\\ 
+  \verb!http://www.inegi.org.mx/sistemas/consulta_resultados/ageb_urb2010.aspx!
+
+\bibitem{NatInegi}
+  INEGI: ``Población, Hogares y Vivienda'',\\
+  \verb!http://www3.inegi.org.mx/sistemas/temas/default.aspx!
+
+\bibitem{AObre}
+  Gobierno Delegacional Álvaro Obregón,\\
+  \verb!http://www.dao.gob.mx/delegacion/encifras/pob_crec.php!
+  
+  
+\end{thebibliography}
+
+
+
+\end{document}
