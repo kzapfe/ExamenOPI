@@ -1,3 +1,14 @@
+\documentclass{article}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\begin{document}
+
 \section{Respuesta}
 
 Las estaciones con mayor arribo a una hora determinada son las 267 y 266 (están una al lado de la otra) entre 18 y 20 horas. Están cerca del Metrobús Buenavista. Me imagino que una gran cantidad de gente que utiliza el tren suburbano hacia el norte de la zona metropolitana llega a esas horas después del trabajo. En la mañana las estaciones con más arribos son la 16,18 y 23. Las tres se encuentran en Reforma, a distancias cortas del Angel de la Independencia, y la hora de arribo es entre las 8 y 9. Es una densa zona de oficinas y corporativos, y la hora de arribo es típica de horarios de oficinista.
@@ -6,5 +17,24 @@ Por otro lado, todos los retiros muestran una gran acumulación entre las 0:00 y
 
 \section{Respuesta}
 
+Son relativamente pocas las estaciones que muestran un alsa haciendo un ajuste lineal sobre estos últimos tres meses. En retiros, 27 estaciones muestran un coeficiente de ajuste lineal positivo, aunque la mayoría resultan casi planos. En arribos, son 23 solamente.
+De ellas, las que tienen la tendencia más clara en ambos rubros son la 61, 176, 365, y 273. Como nota: la estación 365 (Mixcoac) parece no funcionar muy seguido realmente.
+
+\begin{figure}
+  \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{grafoalsaretiro}
+        \caption{Retiros}
+        \label{figret}
+    \end{subfigure}
+    ~       
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{grafoalsaarribo}
+        \caption{Arribos}
+        \label{figarr}
+    \end{subfigure}
+    \caption{Uso por retiro y arribo en las cinco estaciones con tendencia ligeramente al alsa. Se muestra un ajuste lineal por mínimos cuadrados con intervalos de confianza. Nótese que la estación 61 muestra una variación muy grande en sus datos. Los datos de final de año puede que estén causando un descenso espurio en la tendencia.}
+\end{figure}
 
 
+\end{document}
