@@ -20,7 +20,14 @@ datos$horarrib<-as.factor(datos$horarrib)
 ##Ahora si: uso por estacion y por hora
 arribohest<-aggregate(uso~horarrib+Ciclo_Estacion_Arribo, datos,sum)
 retirohest<-aggregate(uso~horaret+Ciclo_Estacion_Retiro, datos,sum)
+
+##te van a servir para responder la pregunta 3.
+write.csv(arribohest, "arribosporhora.csv")
+write.csv(retirohest, "retirosporhora.csv")
+
 ##y los ordenamos para ver las estaciones mas usadas
+
+
 attach(arribohest)
 arribohest[order(uso),]
 attach(retirohest)
